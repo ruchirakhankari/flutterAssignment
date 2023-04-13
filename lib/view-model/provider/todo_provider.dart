@@ -14,27 +14,6 @@ class TopProvider extends ChangeNotifier {
   List<Popular> _popular = [];
   List<Popular> get popular => _popular;
 
-  Future<void> getAllpopular() async {
-    isLoading = true;
-    notifyListeners();
-
-    final response = await _service.getAllpopular();
-
-    _popular = response;
-    isLoading = false;
-    notifyListeners();
-  }
-  Future<void> getAllfeatured() async {
-    isLoading = true;
-    notifyListeners();
-
-    final response = await _service.getAllfeatured();
-
-    _featured = response;
-    isLoading = false;
-    notifyListeners();
-  }
-
   Future<void> getAllTodos() async {
     isLoading = true;
     notifyListeners();
@@ -42,6 +21,27 @@ class TopProvider extends ChangeNotifier {
     final response = await _service.getAll();
 
     _top = response;
+    isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> getAllpopular() async {
+    isLoading = true;
+    notifyListeners();
+
+    final response = await _service.getAllpopular();
+    _popular = response;
+    isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> getAllfeatured() async {
+    isLoading = true;
+    notifyListeners();
+
+    final response = await _service.getAllfeatured();
+    print("Response getAllfeatured>>>${response.toString()}");
+    _featured = response;
     isLoading = false;
     notifyListeners();
   }
