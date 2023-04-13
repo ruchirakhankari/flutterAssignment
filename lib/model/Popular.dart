@@ -1,13 +1,13 @@
 class Popular {
-  final int id;
-  final String auther;
+  final String id;
+  final String author;
   final int width;
   final int height;
   final String url;
   final String download_url;
   Popular({
     required this.id,
-    required this.auther,
+    required this.author,
     required this.width,
     required this.height,
     required this.url,
